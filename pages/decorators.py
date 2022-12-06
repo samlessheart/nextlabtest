@@ -1,9 +1,9 @@
 from django.core.exceptions import PermissionDenied
 
 
-def admin_required(function):
+def staff_required(function):
     def wrap(request, *args, **kwargs):
-        if request.user.is_admin==True:
+        if request.user.is_staff==True:
             return function(request, *args, **kwargs)
         else:
             raise PermissionDenied

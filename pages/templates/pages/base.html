@@ -36,7 +36,6 @@
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
-
           
           {% else %}
           <li class="nav-item px-4">
@@ -46,6 +45,19 @@
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'signup' %}">Signup</a>
           </li>
+          {% endif %}
+
+          {% if user.is_staff == True and  user.is_authenticated == True %}
+        
+          <li class="nav-item px-4">
+            <a class="nav-link" href="{% url 'admindash' %}">Add APP</a>
+          </li>
+          
+          {% elif user.is_staff != True and user.is_authenticated == True %}
+          <li class="nav-item px-4">
+            <a class="nav-link" href="{% url 'userdash' %}">Tasks</a>
+          </li>
+        
           {% endif %}
 
         

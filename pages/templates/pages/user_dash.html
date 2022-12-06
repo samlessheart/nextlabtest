@@ -1,0 +1,32 @@
+{% extends "pages/base.html" %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class=" container">
+
+
+    <div class="container">
+
+        {% for obj in objects%}
+
+        <div class="px-2 py-2 border my-4  row  align-items-center">
+
+            <div>
+            <img src="{{  obj.photo.url }}" class=" mt-3 img-thumbnail rounded mx-4" alt="Image is Loading"
+                style="width:200px;height:200px;">
+            </div>
+            <div class=" text-center align-middle ">
+            <h4 class="align-middle my-2"> {{obj.name}} </h4>
+            <a href="{%url 'taskcomplete' obj.id%}" class="btn my-2 btn-outline-info btn-lg align-middle">Complete this Task</a>
+        </div>
+            <p class="mx-5 btn-lg btn-warning ">{{obj.points}}</p>
+
+        </div>
+
+        {%endfor%}
+
+    
+
+    </div>
+</div>
+{% endblock content %}
