@@ -28,7 +28,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
-
+CSRF_TRUSTED_ORIGINS = ['https://nextlabtest-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
