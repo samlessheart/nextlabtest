@@ -1,0 +1,42 @@
+{% extends "pages/base.html" %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class=" container">
+    <div class="row border-bottom border-info border-3 rounded">
+        
+        <div class="text-center mx-4 ">
+            <h3 class="fw-bold  text-primary"> {{user.username }}</h3>
+        </div>
+        <div>
+            <h4 class="fw-bold  text-primary"> Points - {{user.profile.points}} </h4>
+        </div>
+    </div>
+
+    <div class="container">
+
+        {% for obj in objects%}
+
+        <div class="px-2 py-2 border border-primary rounded justify-content-xl-around border-3 my-4  row  align-items-center">
+
+            <div>
+                <img src="{{  obj.photo.url }}" class=" mt-3 img-thumbnail rounded " alt="Image is Loading"
+                    style="width:200px;height:200px;">
+            </div>
+            <div class=" text-center align-middle ">
+                <h4 class="align-middle my-2"> {{obj.name}} </h4>
+
+            </div>
+            <p class=" btn-lg btn-warning ">{{obj.points}}</p>
+
+        </div>
+
+        {%endfor%}
+
+
+
+
+
+    </div>
+</div>
+{% endblock content %}

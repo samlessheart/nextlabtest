@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     "pages.apps.PagesConfig", 
     'cloudinary',
+    'rest_framework',
+    'api',
 
 ]
 
@@ -59,6 +61,7 @@ ROOT_URLCONF = 'nextlab.urls'
 
 LOGIN_REDIRECT_URL = "home" 
 LOGOUT_REDIRECT_URL = "home"  
+
 
 TEMPLATES = [
     {
