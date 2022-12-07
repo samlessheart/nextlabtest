@@ -2,6 +2,7 @@ asgiref==3.5.2
 certifi==2022.9.24
 charset-normalizer==2.1.1
 cloudinary==1.29.0
+dj-database-url==1.0.0
 Django==4.0.8
 django-cloudinary-storage==0.3.0
 djangorestframework==3.14.0
