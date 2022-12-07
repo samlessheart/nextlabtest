@@ -3,55 +3,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'pages/main.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'pages/main.css'%}" />
 
-
-    <title>{% block title %}NextLab{% endblock title %}</title>
+  <title>{% block title %}NextLab{% endblock title %}</title>
 </head>
 
 <body>
-    
   <header class="sticky-top mb-4">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark   ">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-xl-around " id="collapse_target">
+      <div class="collapse navbar-collapse justify-content-xl-around" id="collapse_target">
         <ul class="navbar-nav px-2">
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
 
-          {% if user.is_staff == True and  user.is_authenticated == True %}
-        
+          {% if user.is_staff == True and user.is_authenticated == True %}
+
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'admindash' %}">Add APP</a>
           </li>
-          
+
           {% elif user.is_staff != True and user.is_authenticated == True %}
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'userdash' %}">Tasks</a>
           </li>
-        
-          {% endif %}
-          {% if user.is_authenticated %}
 
+          {% endif %} {% if user.is_authenticated %}
 
           <li class="nav-item px-4">
-            <a class="nav-link" href="{% url 'profiledash' %}">{{ user.username}} </a>
+            <a class="nav-link" href="{% url 'profiledash' %}">{{ user.username}}</a>
           </li>
+          
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
-          
+
           {% else %}
           <li class="nav-item px-4">
             <a class="nav-link" href="{% url 'login' %}">Login</a>
@@ -61,32 +58,18 @@
             <a class="nav-link" href="{% url 'signup' %}">Signup</a>
           </li>
           {% endif %}
-
-          
-
-        
         </ul>
       </div>
     </nav>
   </header>
 
   <div class="container">
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">
-      {{ message }}
-    </div>
-    {% endfor %}
-    {% endif %}
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %} {% endif %}
   </div>
 
-
-
-
-
-    {% block content %}
-    {% endblock content %}
-
+  {% block content %} {% endblock content %}
 </body>
 
 </html>

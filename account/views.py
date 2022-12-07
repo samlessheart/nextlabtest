@@ -12,6 +12,7 @@ class SignupPageView(generic.CreateView):
     success_url = reverse_lazy("login")
     template_name = "account/signup.html"
 
+
 @login_required(login_url='/login/')
 def log_out(request):
     logout(request)

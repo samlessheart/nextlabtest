@@ -9,7 +9,7 @@ class OurAppsForm(forms.ModelForm):
         fields = [ "photo", "name", "app_link", "category", "sub_category", "points"]
 
         widgets = {
-            'photo' : FileInput(attrs={'rows': 2, 'class': 'form-control'}),
+            'photo' : FileInput(attrs={'rows': 2, 'class': 'form-control col-8'}),
             'name': Textarea(attrs={'rows': 1, 'class': 'form-control col-8 '}),
             'app_link': Textarea(attrs={'rows': 1, 'class': 'form-control col-8'}),
             'category': Select(attrs={ 'rows': 1, 'class': 'form-control col-8'}),
@@ -25,8 +25,7 @@ class TasksForm(forms.ModelForm):
         widgets = {
             'photo': FileInput(attrs={'class':"file-upload"}),
         }
-
-        
+    
 
     
         
