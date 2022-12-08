@@ -2,9 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from PIL import Image
 CustomUser = get_user_model()
-from django.core.files import File
-from io import BytesIO
-from PIL import Image
+
 # Create your models here.
 
 category = [('1', 'Entertainment'),  ('2', 'Productiivity'),   ('3' ,'News')]

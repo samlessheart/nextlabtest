@@ -8,15 +8,6 @@ from django.contrib import messages
 from PIL import Image
 
 
-def resize_image(image):
-    print()
-    print(img.height)
-    img = Image.open(image)
-    if img.height > 300 or img.width > 300:
-        output_size = (300,300)
-        print(img.height)
-        return img.thumbnail(output_size)
-    return img
 
 
 #  home page
@@ -32,7 +23,6 @@ def admindash(request):
     form = OurAppsForm()
     if request.method == "POST":        
         form = OurAppsForm(request.POST, request.FILES)
-        print(f'\n{form.is_valid()}\n')
         if form.is_valid():        
             form.save()
             
@@ -81,7 +71,10 @@ def taskcomplete(request, pk):
 # profile view where user will see his points and completed tasks
 @login_required(login_url='/account/login/')
 def profiledash(request):
-    objects = OurApps.objects.filter(tasks__user = request.user)
+    if request.user.is_staff == True:
+        objects = OurApps.objects.all()
+    else:
+        objects = OurApps.objects.filter(tasks__user = request.user)
 
     context = {'objects':objects}
     return render(request, 'pages/profiledash.html', context)
