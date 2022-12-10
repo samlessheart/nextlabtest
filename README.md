@@ -1,42 +1,51 @@
 # NextLabs Test
 
-**About the App**
-user can share screenshot of an installed app and get points for that activity.
+**About the App**\
+user can share screenshot of an installed app and get points for that activity.\
 admin users can add the app for which users can do the activity
 
 
-**for Admin Users**
+**For Admin Users**
 
-on navigating to "Add App" admin users will be shown an form where they can add app data like app image app name app points etc.
+on navigating to "Add App" admin users will be shown an form where they can add app data like app image, app name, app points etc.
 
 **For Normal Users**
 
-on navigating on Tasks they will be shown a list of the all the tasks and respective points they can earn for that will shown 
-on  clicking the complete task they will presented a form whre they can add screenshot of the installed app.
-once submitting the form they will gain the respective points.
-on clicking the name of the user user will be shown how much points they have earned so far. 
-they will be also shown the task they have completed so far.
+on navigating on Tasks they will be shown a list of the all the tasks and respective points they can earn for that\
+on  clicking the complete task they will presented a form where they can add screenshot of the installed app.\
+once submitting the form they will gain the respective points.\
+on clicking the name of the user, user will be shown how much points they have earned so far. \
+they will also be shown the tasks, that they have completed.\
 
 -----------------------------
 
 **API ENDPOINTS**
 
-1)   /api/applist/
-Method Allowed - GET, POST
-authentication Required
-GET request will return the list of apps that can be done.
-for admin users it will return all the apps that has created
-only admin users can do POST request through which he can create apps
+1.  /api/applist/
 
-2) /api/tasklist/
 Method Allowed - GET, POST
-authentication Required
-GET request will return the list of tasks that has been completed by a user
-POST requsets, users can add the tasks by which they will gain points apecified for that app
 
-3) /api/profile/
+authentication Required
+
+GET request will return the list of apps that can be done.\
+for admin users it will return all the apps that has created.\
+only admin users can do POST request through which he can create apps.\
+
+2. /api/tasklist/
+
+Method Allowed - GET, POST
+
+authentication Required
+
+GET request  - will return the list of tasks that has been completed by a user\
+POST requset - users can add the tasks by which they will gain points apecified for that app\
+
+3.  /api/profile/
+
 Method Allowed - GET
+
 authentication Required
+
 GET request will return Profile detail like name and points earned by the user
 
 -----------------------------
@@ -59,25 +68,22 @@ https://nextlabtest-production.up.railway.app/
 **Problem Set 3**
 
 A)
-In couple of my projects i have used Celery for automating the django tasks even in all ofthem i Have used Redis as a messagebroker. one of the reason for choosing Redis was it is lightweight, it doesn't require lots of time and effort to setup. Certaily as i have read on some articles it seems that Redis is not very reliable and it doesnt scale for large projects. in this instances we have choices like RabbitMQ or Kafka. which supports large scale projects and are reliable.
+In couple of my projects i have used Celery for automating the django tasks even in all of them I Have used Redis as a message broker. one of the reason for choosing Redis was, it is lightweight, it doesn't require lots of time and effort to setup. Certaily as i have read on some articles it seems that Redis is not very reliable and it doesn't scale for large projects. in this cases we have choices like RabbitMQ or Kafka. which supports large scale projects and are much reliable.
 
 
 B)  
-Django Vs Flask, 
-if the application is not database driven and if it is only consist of some static pages and it contains only small logic behind it, it would be better to use flask than django, as it will be easy to setup and start project with Flask. 
-While Django is good at what it does it comes with lot of things preinstalled, due to which it has little complexity to it. 
-one of the best thing about django it comes with lot of additional things like User authentication,  sqlite databse(not recommended for production obviously) and its own ORM , which make it very easier to build a large scale website within short amount of time.
+Django Vs Flask\
+if the application is not database driven and if it is only consist of some static pages and it contains only small logic behind it, it would be better to use flask than django, as it will be easy to setup and start project with Flask. While Django is good at what it does it comes with lot of things preinstalled, due to which it has little complexity to it. one of the best thing about django it comes with lot of additional things like User authentication, sqlite databse(not recommended for production obviously) and its own ORM, which make it very easier to build a large scale website within short amount of time.
 
 -----------------------------
 
 
-
-**Deployment Process**
-(These steps are specific for "Railway.app", steps for different cloud service may vary)
+**Deployment Process**\
+(These steps are specific for "Railway.app", steps for different cloud service may vary)\
 Requirements - 
 1) account on "github"
 2) account on "Railway.app"
-3)account on "Cloudinary" (optional, "WhiteNoise" package can be used instead of this)
+3) account on "Cloudinary" (optional, "WhiteNoise" package can be used instead of this)
 
 
 Steps - 
