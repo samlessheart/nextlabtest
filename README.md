@@ -5,11 +5,11 @@ user can share screenshot of an installed app and get points for that activity.
 admin users can add the app for which users can do the activity
 
 
-for Admin Users 
+**for Admin Users **
 
 on navigating to "Add App" admin users will be shown an form where they can add app data like app image app name app points etc.
 
-For Normal Users
+**For Normal Users**
 
 on navigating on Tasks they will be shown a list of the all the tasks and respective points they can earn for that will shown 
 on  clicking the complete task they will presented a form whre they can add screenshot of the installed app.
@@ -43,10 +43,15 @@ GET request will return Profile detail like name and points earned by the user
 
 
 **Problem Set I - Regex**
-Please refer the file "regex_test.py"
+
+Please refer the file -  "regex_test.py"
+
+-----------------------------
 
 **Problem Set 2 - A functioning web app with API**
+
 Please follow below link-
+
 https://nextlabtest-production.up.railway.app/
 
 -----------------------------
@@ -99,6 +104,5 @@ Additional Steps for using Cloudinary (for serving static and media files)
 5)	Modify Setting.py “INSTALLED_APPS” varialble – add 'cloudinary_storage', and 'cloudinary', in it.
 6)	add Cloudinary credentials to settings.py - CLOUDINARY_STORAGE = {  'CLOUD_NAME': 'your_cloud_name',    'API_KEY': 'your_api_key',    'API_SECRET': 'your_api_secret' }
 7) for more info on cloudinary - "https://pypi.org/project/django-cloudinary-storage/"
-
 
 
