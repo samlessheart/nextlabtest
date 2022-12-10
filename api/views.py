@@ -12,14 +12,17 @@ from .permissions import IsStaffOrReadOnly
 
 
 
-# list all the app or create a new app 
+# list all the apps that can be completed and create a new app 
 class AppList(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated, IsStaffOrReadOnly]
     parser_classes = [MultiPartParser, FormParser]
 
     def get(self, request, format = None):
-        apps = OurApps.objects.all()
+        if request.user.is_staff:
+            apps = OurApps.objects.all()
+        else:
+            apps = OurApps.objects.exclude(tasks__user = request.user)
         serializer = OurAppsSerializers(apps, many=True)
 
         return Response(serializer.data)
@@ -32,6 +35,8 @@ class AppList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
+# list the task that has been completed by user and create task 
 class TaskList(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
@@ -43,10 +48,10 @@ class TaskList(APIView):
 
         return Response(serializer.data)
 
-    def post(self, request,):
+    def post(self, request):
         serializer = TasksSerializers(data = request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
