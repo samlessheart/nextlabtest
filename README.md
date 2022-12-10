@@ -1,11 +1,11 @@
 # NextLabs Test
 
-About the App
+**About the App**
 user can share screenshot of an installed app and get points for that activity.
 admin users can add the app for which users can do the activity
 
 
-**for Admin Users **
+**for Admin Users**
 
 on navigating to "Add App" admin users will be shown an form where they can add app data like app image app name app points etc.
 
