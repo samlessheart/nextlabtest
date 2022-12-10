@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from .serializers import OurAppsSerializers, TasksSerializers
-from rest_framework import generics, viewsets, status
+from .serializers import OurAppsSerializers, TasksSerializers, ProfileSerializers
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.parsers import MultiPartParser, FormParser
 from pages.models import Tasks, OurApps
+from account.models import Profile
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from .permissions import IsStaffOrReadOnly
 # Create your views here.
@@ -57,3 +58,12 @@ class TaskList(APIView):
 
 
 
+
+class Profiledetail(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        prof = Profile.objects.get(id = request.user.profile.id)
+        serializer = ProfileSerializers(prof)
+        return Response(serializer.data)

@@ -3,4 +3,14 @@ test_string = """{"orders":[{"id":1},{"id":2},{"id":3},{"id":4},{"id":5},{"id":6
 "errors":[{"code":3,"message":"[PHP Warning #2] count(): Parameter must be an array or an object 
 that implements Countable (153)"}]}"""
 
+import re
+pattern = re.compile(r':(\d+)')
 
+matches = pattern.finditer(test_string)
+
+answer = []
+for match in matches:
+    answer.append(match.group(1))
+    
+
+print(answer)
