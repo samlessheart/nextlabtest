@@ -30,4 +30,7 @@ class Tasks(models.Model):
     confirmed = models.BooleanField(default=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='tasks')
 
+    class Meta:
+        unique_together = ("apps", "user")
+
 
